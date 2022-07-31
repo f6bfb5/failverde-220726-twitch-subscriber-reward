@@ -221,7 +221,7 @@
 					'Content-Type': 'text/plain;charset=utf-8'
 				}
 			});
-			isSUbmitted = true;
+			isSubmitted = true;
 			setTimeout(() => {
 				window.location.assign('./');
 			}, 5000);
