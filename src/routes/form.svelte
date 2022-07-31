@@ -168,7 +168,7 @@
 			}, 5000);
 		} else {
 			const apiUrl =
-				'https://script.google.com/macros/s/AKfycbzotzi7LQBXas3rD9k8qSYCkjQzuB8kJe3KInd5C0_SBH_vZ1othas-xrkUvv7CdiDhxA/exec';
+				'https://script.google.com/macros/s/AKfycbyQJSJ7dZoD-1is8fLVp7uy43pBXakeLeabTU8FbtmNFLcJl5z2X3a1Jju4wnfXxWlobQ/exec';
 			const submitTimestamp = new Date();
 			const submitAddress = (
 				locationInfo.isOverseas
