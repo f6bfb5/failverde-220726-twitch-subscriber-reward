@@ -19,23 +19,23 @@
 	let isSubmitted = false;
 	let unfilledFieldArr = [];
 
-	let locationInfo = {
-		isOverseas: false,
-		city: '',
-		district: '',
-		zipcode: '',
-		address: ''
-	};
-	let contactInfo = {
-		login: '',
-		displayName: '',
-		name: '',
-		gender: '',
-		phoneNumber: '',
-		email: '',
-		screenshotUrl: '',
-		customWord: ''
-	};
+	// let locationInfo = {
+	// 	isOverseas: false,
+	// 	city: '',
+	// 	district: '',
+	// 	zipcode: '',
+	// 	address: ''
+	// };
+	// let contactInfo = {
+	// 	login: '',
+	// 	displayName: '',
+	// 	name: '',
+	// 	gender: '',
+	// 	phoneNumber: '',
+	// 	email: '',
+	// 	screenshotUrl: '',
+	// 	customWord: ''
+	// };
 
 	// ==== test data ====
 	// let locationInfo = {
@@ -45,17 +45,25 @@
 	// 	zipcode: '100',
 	// 	address: '測試地址'
 	// };
-	// let contactInfo = {
-	// 	login: '',
-	// 	displayName: '',
-	// 	name: '測試收件者',
-	// 	gender: '男',
-	// 	phoneNumber: '0912345678',
-	// 	email: 'example@example.com',
-	// 	// screenshotUrl: 'https://example.com/example.png',
-	// 	screenshotUrl: '',
-	// 	customWord: 'exam'
-	// };
+	let locationInfo = {
+		isOverseas: true,
+		country: 'Japan',
+		state: '',
+		city: 'Chiyoda City',
+		zipcode: '',
+		address: '1-1 Chiyoda'
+	};
+	let contactInfo = {
+		login: '',
+		displayName: '',
+		name: '測試收件者',
+		gender: '男',
+		phoneNumber: '0912345678',
+		email: 'example@example.com',
+		screenshotUrl: 'https://example.com/example.png',
+		// screenshotUrl: '',
+		customWord: 'exam'
+	};
 
 	function initLocationInfo(isOverseas) {
 		locationInfo = isOverseas
@@ -212,13 +220,9 @@
 			const submitAddress = (
 				locationInfo.isOverseas
 					? // Overseas
-					  locationInfo.address +
-					  locationInfo.city +
-					  locationInfo.state ? locationInfo.state : '' +
-					  locationInfo.zipcode ? locationInfo.zipcode : '' +
-					  locationInfo.country
+					  `${locationInfo.address} ${locationInfo.city} ${locationInfo.state} ${locationInfo.zipcode} ${locationInfo.country}`
 					: // Taiwan
-					  locationInfo.zipcode + locationInfo.city + locationInfo.district + locationInfo.address
+					  `${locationInfo.zipcode} ${locationInfo.city} ${locationInfo.district} ${locationInfo.address}`
 			)
 				.trim()
 				.replace(/  +/g, ' ');
