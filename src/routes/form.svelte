@@ -213,10 +213,9 @@
 				locationInfo.isOverseas
 					? // Overseas
 					  locationInfo.address +
-					  locationInfo.district +
 					  locationInfo.city +
-					  locationInfo.state +
-					  locationInfo.zipcode +
+					  locationInfo.state ? locationInfo.state : '' +
+					  locationInfo.zipcode ? locationInfo.zipcode : '' +
 					  locationInfo.country
 					: // Taiwan
 					  locationInfo.zipcode + locationInfo.city + locationInfo.district + locationInfo.address
