@@ -19,23 +19,23 @@
 	let isSubmitted = false;
 	let unfilledFieldArr = [];
 
-	// let locationInfo = {
-	// 	isOverseas: false,
-	// 	city: '',
-	// 	district: '',
-	// 	zipcode: '',
-	// 	address: ''
-	// };
-	// let contactInfo = {
-	// 	login: '',
-	// 	displayName: '',
-	// 	name: '',
-	// 	gender: '',
-	// 	phoneNumber: '',
-	// 	email: '',
-	// 	screenshotUrl: '',
-	// 	customWord: ''
-	// };
+	let locationInfo = {
+		isOverseas: false,
+		city: '',
+		district: '',
+		zipcode: '',
+		address: ''
+	};
+	let contactInfo = {
+		login: '',
+		displayName: '',
+		name: '',
+		gender: '',
+		phoneNumber: '',
+		email: '',
+		screenshotUrl: '',
+		customWord: ''
+	};
 
 	// ==== test data ====
 	// let locationInfo = {
@@ -45,25 +45,25 @@
 	// 	zipcode: '100',
 	// 	address: '測試地址'
 	// };
-	let locationInfo = {
-		isOverseas: true,
-		country: 'Japan',
-		state: '',
-		city: 'Chiyoda City',
-		zipcode: '',
-		address: '1-1 Chiyoda'
-	};
-	let contactInfo = {
-		login: '',
-		displayName: '',
-		name: '測試收件者',
-		gender: '男',
-		phoneNumber: '0912345678',
-		email: 'example@example.com',
-		screenshotUrl: 'https://example.com/example.png',
-		// screenshotUrl: '',
-		customWord: 'exam'
-	};
+	// let locationInfo = {
+	// 	isOverseas: true,
+	// 	country: 'Japan',
+	// 	state: '',
+	// 	city: 'Chiyoda City',
+	// 	zipcode: '',
+	// 	address: '1-1 Chiyoda'
+	// };
+	// let contactInfo = {
+	// 	login: '',
+	// 	displayName: '',
+	// 	name: '測試收件者',
+	// 	gender: '男',
+	// 	phoneNumber: '0912345678',
+	// 	email: 'example@example.com',
+	// 	screenshotUrl: 'https://example.com/example.png',
+	// 	// screenshotUrl: '',
+	// 	customWord: 'exam'
+	// };
 
 	function initLocationInfo(isOverseas) {
 		locationInfo = isOverseas
