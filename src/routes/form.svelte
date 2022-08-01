@@ -2,8 +2,8 @@
 	// TODO:
 	// [x] 1. check if all required field is filled
 	// [x] 2. display field notification message
-	// [ ] 3. disable input after check confirmation checkbox
-	// [ ] 4. disable submit after click
+	// [x] 3. disable input after check confirmation checkbox
+	// [x] 4. disable submit after click
 	// [ ] 5. display success or failure message
 
 	import { onMount } from 'svelte';
@@ -138,11 +138,12 @@
 		if (Object.values(contactInfo).includes('') || Object.values(locationInfo).includes('')) {
 			const fieldReference = {
 				name: '收件者名稱',
+				gender: '性別',
 				country: '國家',
-				state: '洲',
+				// state: '洲',
 				city: '城市',
-				district: '區',
-				zipcode: '郵遞區號',
+				// district: '區',
+				// zipcode: '郵遞區號',
 				address: '地址',
 				phoneNumber: '聯絡電話',
 				email: 'E-mail',
@@ -241,7 +242,9 @@
 
 {#if isLoaded}
 	{#if isError}
-		<div style="width: 100%; min-height: 100vh; display: grid; place-content: center; border-radius: 4px;">
+		<div
+			style="width: 100%; min-height: 100vh; display: grid; place-content: center; border-radius: 4px;"
+		>
 			<p
 				style="margin: auto; padding: 16px; width: fit-content; border-radius: 4px; background: white;"
 			>
@@ -249,7 +252,9 @@
 			</p>
 		</div>
 	{:else if isSubmitted}
-		<div style="width: 100%; min-height: 100vh; display: grid; place-content: center; border-radius: 4px;">
+		<div
+			style="width: 100%; min-height: 100vh; display: grid; place-content: center; border-radius: 4px;"
+		>
 			<p
 				style="margin: auto; padding: 16px; width: fit-content; border-radius: 4px; background: white;"
 			>
@@ -272,9 +277,10 @@
 					<input
 						type="text"
 						bind:value={contactInfo.name}
-						required
-						placeholder="收件者名稱"
+						placeholder="收件者名稱（必填）"
 						autocomplete="name"
+						required
+						disabled={isConfirmed}
 					/>
 				</div>
 				<!-- gender -->
@@ -286,6 +292,7 @@
 							id="male"
 							name="gender"
 							value="男"
+							disabled={isConfirmed}
 						/>
 						<label class="input-label" for="male">男</label>
 						<input
@@ -294,6 +301,7 @@
 							id="female"
 							name="gender"
 							value="女"
+							disabled={isConfirmed}
 						/>
 						<label class="input-label" for="female">女</label>
 					</div>
@@ -308,6 +316,7 @@
 							value={false}
 							bind:group={locationInfo.isOverseas}
 							on:change={() => initLocationInfo(false)}
+							disabled={isConfirmed}
 						/>
 						<label class="input-label" for="taiwan">台灣</label>
 						<input
@@ -317,6 +326,7 @@
 							value={true}
 							bind:group={locationInfo.isOverseas}
 							on:change={() => initLocationInfo(true)}
+							disabled={isConfirmed}
 						/>
 						<label class="input-label" for="overseas">海外</label>
 					</div>
@@ -329,6 +339,7 @@
 								bind:value={locationInfo.city}
 								on:change={() => (locationInfo.district = '')}
 								required
+								disabled={isConfirmed}
 							>
 								<option value="" selected disabled hidden>縣市</option>
 								{#each Array.from(new Set(geodata
@@ -343,6 +354,7 @@
 									locationInfo.district = e.target.value.split(' ')[1];
 								}}
 								required
+								disabled={isConfirmed}
 							>
 								<option value="" selected disabled hidden>區</option>
 								{#each geodata
@@ -355,10 +367,11 @@
 						<div class="input-field">
 							<input
 								type="text"
-								required
 								bind:value={locationInfo.address}
-								placeholder="地址（縣市、鄉鎮市區不用重複填寫）"
+								placeholder="地址（必填，縣市、鄉鎮市區不用重複填寫）"
 								autocomplete="shipping street-address"
+								required
+								disabled={isConfirmed}
 							/>
 						</div>
 					</div>
@@ -368,15 +381,17 @@
 						<input
 							type="text"
 							bind:value={locationInfo.country}
-							placeholder="國家"
+							placeholder="國家（必填）"
 							autocomplete="shipping country"
 							required
+							disabled={isConfirmed}
 						/>
 						<input
 							type="text"
 							bind:value={locationInfo.state}
 							placeholder="洲"
 							autocomplete="region"
+							disabled={isConfirmed}
 						/>
 					</div>
 					<div>
@@ -384,23 +399,26 @@
 							<input
 								type="text"
 								bind:value={locationInfo.city}
-								placeholder="城市"
+								placeholder="城市（必填）"
 								autocomplete="city"
+								required
+								disabled={isConfirmed}
 							/>
 							<input
 								type="text"
 								bind:value={locationInfo.zipcode}
 								placeholder="郵遞區號"
-								required
+								disabled={isConfirmed}
 							/>
 						</div>
 						<div class="input-field">
 							<input
 								type="text"
 								bind:value={locationInfo.address}
-								placeholder="地址"
+								placeholder="地址（必填）"
 								autocomplete="shipping street-address"
 								required
+								disabled={isConfirmed}
 							/>
 						</div>
 					</div>
@@ -411,9 +429,10 @@
 					<input
 						type="tel"
 						bind:value={contactInfo.phoneNumber}
-						required
-						placeholder="聯絡電話"
+						placeholder="聯絡電話（必填）"
 						autocomplete="tel"
+						required
+						disabled={isConfirmed}
 					/>
 				</div>
 				<!-- email -->
@@ -422,9 +441,10 @@
 					<input
 						type="email"
 						bind:value={contactInfo.email}
-						required
-						placeholder="E-mail"
+						placeholder="E-mail（必填）"
 						autocomplete="email"
+						required
+						disabled={isConfirmed}
 					/>
 				</div>
 				<!-- subscriber image -->
@@ -433,8 +453,9 @@
 					<input
 						type="text"
 						bind:value={contactInfo.screenshotUrl}
+						placeholder="訂閱截圖網址（必填）"
 						required
-						placeholder="訂閱截圖網址"
+						disabled={isConfirmed}
 					/>
 				</div>
 				<!-- special symbol -->
@@ -444,13 +465,14 @@
 						type="text"
 						bind:value={contactInfo.customWord}
 						on:input|preventDefault={handleCustomWordInput}
+						placeholder="客製詞句（必填）"
 						required
-						placeholder="客製詞句"
+						disabled={isConfirmed}
 					/>
 				</div>
 				<!-- input confirm -->
 				<div style="margin-bottom: 16px;">
-					<input type="checkbox" id="inputCheck" bind:value={isConfirmed} />
+					<input type="checkbox" id="inputCheck" bind:checked={isConfirmed} />
 					<label for="inputCheck">我確定內容輸入無誤</label>
 				</div>
 				<div id="js-message-box" class="message-box hidden">
@@ -463,7 +485,7 @@
 						{/if}
 					{/each}
 				</div>
-				<button on:click|preventDefault={handleSubmitClick}>提交</button>
+				<button on:click|preventDefault={handleSubmitClick} disabled={!isConfirmed}>提交</button>
 			</form>
 		</div>
 	{/if}
@@ -508,7 +530,7 @@
 	input:not([type='radio']):not([type='checkbox']),
 	input:not([type='radio']):not([type='checkbox']):focus,
 	select,
-	/* for the account and nickname line */
+	/* and the account and nickname line */
 	.input-field > span:not(:first-child) {
 		padding-left: 12px;
 		width: 100%;
@@ -521,15 +543,21 @@
 	select {
 		cursor: pointer;
 	}
+	.input-label {
+		user-select: none;
+		cursor: pointer;
+	}
+	input:disabled,
+	select:disabled,
+	input:disabled + .input-label {
+		background-color: white;
+		cursor: not-allowed;
+	}
 	input[type='radio'] {
 		margin-right: 0;
 	}
 	.input-field input + input {
 		border-left: 1px solid #ccc !important;
-	}
-	.input-label {
-		user-select: none;
-		cursor: pointer;
 	}
 	.fa {
 		width: 20px;
@@ -556,5 +584,10 @@
 	}
 	button:hover {
 		filter: brightness(90%);
+	}
+	button:disabled {
+		background: darkGray;
+		color: white;
+		cursor: not-allowed;
 	}
 </style>

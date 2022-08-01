@@ -15,24 +15,25 @@
 <article>
 	<h1>懶猫訂閲者回饋<wbr />說明與填寫</h1>
 	<section style="display: flow-root;">
+		<p style="font-size: 1.25em; text-align: center;">
+			懶貓訂閱者回饋開放填單啦！<br />
+			在填單之前，請確定你已詳細閱讀以下內容。
+		</p>
+		<h2>回饋說明</h2>
 		<div class="float-right" style="margin: 18px 0; text-align: center;">
 			<a
 				href="https://cdn.discordapp.com/attachments/517930635453530115/1001486177389523024/unknown.png"
 				rel="noreferrer noopener"
 				target="_blank"
 			>
-				<img
-					src="https://cdn.discordapp.com/attachments/517930635453530115/1001486177389523024/unknown.png"
-					style="max-width: 320px; width: 100%;"
+			<img
+			src="https://cdn.discordapp.com/attachments/517930635453530115/1001486177389523024/unknown.png"
+			style="max-width: 320px; width: 100%;"
 					alt="reward example"
 				/>
 			</a>
 			<div>點擊可看大圖</div>
 		</div>
-		<p style="font-size: 1.25rem;">
-			懶貓訂閱者回饋開放填單啦！<br />
-			在填單之前，請確定你已詳細閱讀以下說明。
-		</p>
 		<h3>回饋內容</h3>
 		<p>
 			這次的回饋內容是外徑 8 公分、內徑 7.5 公分，杯高 10.4 公分的鋼杯，<br />
@@ -65,15 +66,15 @@
 			</ul>
 		</ul>
 		<h3>填單期間</h3>
-		<p>2022/XX/XX 至 2022/XX/XX</p>
+		<p>2022/08/25 至 2022/09/25</p>
 		<h3>寄送時間</h3>
-		<p>2022/XX/XX 起</p>
+		<p>未定</p>
 	</section>
 	<div style="padding: 16px; padding-bottom: 0;">
 		<p>
 			為了確認你的訂閱者身份，除了基礎的寄送資料外，<br />
-			還需要請你依照下列要求，截圖訂閱資格之後上傳，<br />
-			並於填單時，於指定欄位附上圖片網址。<br />
+			還需要請你<b>依照下列要求，截圖訂閱資格之後上傳</b>，<br />
+			並<b>於填單時，於指定欄位附上圖片網址</b>。<br />
 			（可使用 Win+Shift+S 拉選範圍截圖，<wbr />開啟小畫家貼上、存檔後，上傳至
 			<a href="https://imgur.com/" rel="noreferrer noopener" target="_blank">Imgur</a>
 			），<br />

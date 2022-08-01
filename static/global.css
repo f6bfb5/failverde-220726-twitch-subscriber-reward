@@ -30,6 +30,12 @@ body {
   color: white;
   cursor: pointer;
 }
+.btn:disabled,
+.btn[disabled] {
+  background: darkGray;
+  color: white;
+  cursor: not-allowed;
+}
 
 /* h1, h2, h3, h4, h5, h6 {
   font-family: 'Mochiy Pop One', sans-serif;
