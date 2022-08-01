@@ -93,7 +93,7 @@
 		return JSON.parse(jsonPayload);
 	}
 
-	function fetchTwitchData() {
+	function getTwitchData() {
 		const parameterReference = ['access_token', 'id_token', 'scope', 'token_type'];
 		let urlParameter = {};
 		let urlHash = new URL(window.location.href).hash.slice(1).split('&');
@@ -134,35 +134,73 @@
 		e.target.value = newValue.match(re)[0];
 	}
 
+	function checkUnfilledField() {
+		const requiredFieldReference = {
+			name: '收件者名稱',
+			gender: '性別',
+			country: '國家',
+			// state: '洲',
+			city: '城市',
+			// district: '區',
+			// zipcode: '郵遞區號',
+			address: '地址',
+			phoneNumber: '聯絡電話',
+			email: 'E-mail',
+			screenshotUrl: '訂閱截圖網址',
+			customWord: '客製詞句'
+		};
+		// if (Object.values(contactInfo).includes('') || Object.values(locationInfo).includes(''))
+		if (
+			Object.entries(requiredFieldReference).some(
+				(requiredField) =>
+					contactInfo[requiredField[0]] === '' || contactInfo[requiredField[0]] === ''
+			)
+		) {
+			return true;
+		}
+		return false;
+	}
+
+	function getUnfilledField() {
+		const requiredFieldReference = {
+			name: '收件者名稱',
+			gender: '性別',
+			// country: '國家',
+			// state: '洲',
+			city: '城市',
+			// district: '區',
+			// zipcode: '郵遞區號',
+			address: '地址',
+			phoneNumber: '聯絡電話',
+			email: 'E-mail',
+			screenshotUrl: '訂閱截圖網址',
+			customWord: '客製詞句'
+		};
+		if (!locationInfo.isOverseas) delete requiredFieldReference.country;
+
+		// return []
+		// 	.concat(
+		// 		Object.entries(contactInfo)
+		// 			.filter((contactData) => contactData[1] == '')
+		// 			.map((contactData) => contactData[0])
+		// 	)
+		// 	.concat(
+		// 		Object.entries(locationInfo)
+		// 			.filter((locationData) => locationData[1] == '')
+		// 			.map((locationData) => locationData[0])
+		// 	)
+		// 	.map((fieldKey) => fieldReference[fieldKey])
+		// 	.filter((unfilledFieldKey) => unfilledFieldKey);
+
+		const allInfo = Object.assign(contactInfo, locationInfo);
+		return Object.entries(requiredFieldReference)
+			.filter((requiredField) => allInfo[requiredField[0]] == '')
+			.map((requiredField) => requiredField[1]);
+	}
+
 	async function handleSubmitClick(e) {
-		if (Object.values(contactInfo).includes('') || Object.values(locationInfo).includes('')) {
-			const fieldReference = {
-				name: '收件者名稱',
-				gender: '性別',
-				country: '國家',
-				// state: '洲',
-				city: '城市',
-				// district: '區',
-				// zipcode: '郵遞區號',
-				address: '地址',
-				phoneNumber: '聯絡電話',
-				email: 'E-mail',
-				screenshotUrl: '訂閱截圖網址',
-				customWord: '客製語句'
-			};
-			unfilledFieldArr = []
-				.concat(
-					Object.entries(contactInfo)
-						.filter((contactData) => contactData[1] == '')
-						.map((contactData) => contactData[0])
-				)
-				.concat(
-					Object.entries(locationInfo)
-						.filter((locationData) => locationData[1] == '')
-						.map((locationData) => locationData[0])
-				)
-				.map((fieldKey) => fieldReference[fieldKey])
-				.filter((unfilledFieldKey) => unfilledFieldKey);
+		if (checkUnfilledField()) {
+			unfilledFieldArr = getUnfilledField();
 			document.getElementById('js-message-box').classList.remove('hidden');
 			setTimeout(() => {
 				document.getElementById('js-message-box').classList.add('hidden');
@@ -181,11 +219,7 @@
 					  locationInfo.zipcode +
 					  locationInfo.country
 					: // Taiwan
-					  locationInfo.zipcode +
-					  locationInfo.state +
-					  locationInfo.city +
-					  locationInfo.district +
-					  locationInfo.address
+					  locationInfo.zipcode + locationInfo.city + locationInfo.district + locationInfo.address
 			)
 				.trim()
 				.replace(/  +/g, ' ');
@@ -231,7 +265,7 @@
 
 	let geodata = [];
 	onMount(async () => {
-		fetchTwitchData();
+		getTwitchData();
 		fetch('./taiwan_zipcode.json')
 			.then((res) => res.json())
 			.then((data) => (geodata = data));
@@ -495,7 +529,7 @@
 
 <style>
 	.form-container {
-		margin: 8% auto;
+		margin: 8% auto 0;
 		max-width: 720px;
 		box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
 	}
