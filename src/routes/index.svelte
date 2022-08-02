@@ -1,5 +1,5 @@
 <script>
-  import VerifyResult from "$lib/VerifyResult.svelte";
+	import VerifyResult from '$lib/VerifyResult.svelte';
 
 	function authorizeUser() {
 		const responseType = 'token+id_token';
@@ -55,7 +55,15 @@
 			<ul>
 				<li>不限訂閱層級</li>
 				<li>中間<b>不可斷訂超過一個月</b></li>
-				<li>六個月裡<b>不可包含他人送訂</b></li>
+				<li>
+					六個月<b>不含他人送訂</b>
+					<ul>
+						<li>
+							若中間有收到送訂，請參考示例的<br />
+							「你是被人送訂而六個月斷掉的訂閱者」
+						</li>
+					</ul>
+				</li>
 			</ul>
 			<li><b>一次補滿六個月訂閱</b></li>
 			<ul>
