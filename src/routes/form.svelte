@@ -237,16 +237,22 @@
 					3: contactInfo.displayName,
 					// 收件者名稱
 					4: contactInfo.name,
+					// 海外
+					5: locationInfo.isOverseas,
+					// 縣市
+					6: locationInfo.city,
+					// 郵遞區號
+					7: locationInfo.zipcode,
 					// 地址
-					5: submitAddress,
+					8: submitAddress,
 					// 聯絡電話
-					6: contactInfo.phoneNumber,
+					9: contactInfo.phoneNumber,
 					// E-mail
-					7: contactInfo.email,
+					10: contactInfo.email,
 					// 訂閱截圖網址
-					8: contactInfo.screenshotUrl,
+					11: contactInfo.screenshotUrl,
 					// 客製詞句
-					9: contactInfo.customWord
+					12: contactInfo.customWord
 				}
 			};
 
