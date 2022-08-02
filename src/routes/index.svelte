@@ -1,4 +1,6 @@
 <script>
+  import VerifyResult from "$lib/VerifyResult.svelte";
+
 	function authorizeUser() {
 		const responseType = 'token+id_token';
 		const clientID = '9tg4wj9aa662dtxh3im93jkwu516bs0';
@@ -12,7 +14,7 @@
 	}
 </script>
 
-<article>
+<article style="padding-top: 1rem;">
 	<h1>懶猫訂閲者回饋<wbr />說明與填寫</h1>
 	<section style="display: flow-root;">
 		<p style="font-size: 1.25em; text-align: center;">
@@ -26,9 +28,9 @@
 				rel="noreferrer noopener"
 				target="_blank"
 			>
-			<img
-			src="https://cdn.discordapp.com/attachments/517930635453530115/1001486177389523024/unknown.png"
-			style="max-width: 320px; width: 100%;"
+				<img
+					src="https://cdn.discordapp.com/attachments/517930635453530115/1001486177389523024/unknown.png"
+					style="max-width: 320px; width: 100%;"
 					alt="reward example"
 				/>
 			</a>
@@ -52,7 +54,8 @@
 			<li><b>連續訂閱六個月以上</b></li>
 			<ul>
 				<li>不限訂閱層級</li>
-				<li>中間不可斷訂超過一個月</li>
+				<li>中間<b>不可斷訂超過一個月</b></li>
+				<li>六個月裡<b>不可包含他人送訂</b></li>
 			</ul>
 			<li><b>一次補滿六個月訂閱</b></li>
 			<ul>
@@ -77,7 +80,7 @@
 			並<b>於填單時，於指定欄位附上圖片網址</b>。<br />
 			（可使用 Win+Shift+S 拉選範圍截圖，<wbr />開啟小畫家貼上、存檔後，上傳至
 			<a href="https://imgur.com/" rel="noreferrer noopener" target="_blank">Imgur</a>
-			），<br />
+			）
 		</p>
 	</div>
 	<section>
@@ -162,7 +165,12 @@
 			</p>
 			<ul>
 				<li>點擊右上角選單顯示的<b>使用者名稱</b></li>
-				<li>中間的訂閱狀況</li>
+				<li>
+					中間的訂閱狀況
+					<ul>
+						<li><b>除去他人送訂</b>總訂閱時間須滿六個月</li>
+					</ul>
+				</li>
 				<li>被人送訂的通知（請另外截下後，貼至圖片不會遮擋到資訊的地方）</li>
 			</ul>
 		</div>
@@ -185,7 +193,7 @@
 					於 <a href="https://discord.gg/lancat" rel="noreferrer noopener" target="_blank">
 						Discord
 					</a> 上私訊懶貓聯絡
-				</b>。
+				</b>
 			</li>
 		</ul>
 	</section>
@@ -198,15 +206,20 @@
 	<hr />
 	<section>
 		<h2>審核結果</h2>
+		<VerifyResult />
 	</section>
 </article>
 
 <style scoped>
 	h1 {
-		margin: 0;
-		padding: 1rem;
+		margin: 0 auto 1rem;
+		padding: 0;
+		width: fit-content;
+		color: white;
+		background: black;
 		text-align: center;
 		font-size: 2rem;
+		word-break: keep-all;
 	}
 	/* 3D box  */
 	h2 {
@@ -316,5 +329,8 @@
 		/* .float-left {
 			float: left;
 		} */
+		h1 {
+			transform: skewX(-10deg);
+		}
 	}
 </style>

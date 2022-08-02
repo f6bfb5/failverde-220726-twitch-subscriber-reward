@@ -5,7 +5,7 @@ body {
 	box-sizing: border-box;
 }
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 :root {
@@ -14,27 +14,30 @@ body {
 
 body {
 	background-color: var(--primary-color);
-  font-family: 'Noto Sans JP', sans-serif;
-  text-rendering: geometricPrecision;
+	font-family: 'Noto Sans JP', sans-serif;
+	text-rendering: geometricPrecision;
 }
 
 .btn {
-  display: inline-block;
-  font-size: 1.2em;
+	display: inline-block;
+	font-size: 1.2em;
 	padding: 0.5rem 1rem;
-  margin: 1rem auto;
+	margin: 1rem auto;
 	border-radius: 0.5rem;
-  text-decoration: none;
-  border: none;
-  background: var(--primary-color);
-  color: white;
-  cursor: pointer;
+	text-decoration: none;
+	border: none;
+	background: var(--primary-color);
+	color: white;
+	cursor: pointer;
+}
+.btn:hover {
+	background: #3bb2cd;
 }
 .btn:disabled,
 .btn[disabled] {
-  background: darkGray;
-  color: white;
-  cursor: not-allowed;
+	background: darkGray;
+	color: white;
+	cursor: not-allowed;
 }
 
 /* h1, h2, h3, h4, h5, h6 {
@@ -42,35 +45,35 @@ body {
 } */
 
 h1 {
-  font-size: 2em;
+	font-size: 2em;
 }
 
 h2 {
-  font-size: 1.8em;
+	font-size: 1.8em;
 }
 
 h3 {
-  font-size: 1.5em;
+	font-size: 1.5em;
 }
 
 h4 {
-  font-size: 1.4em;
+	font-size: 1.4em;
 }
 
 h5 {
-  font-size: 1.3em;
+	font-size: 1.3em;
 }
 
 h6 {
-  font-size: 1.2em;
+	font-size: 1.2em;
 }
 
 p {
-  font-size: 1.125em;
-  line-height: calc(0.25rem * 7);
-  letter-spacing: 0.0325em;
-  margin-left: 1em;
+	font-size: 1.125em;
+	line-height: calc(0.25rem * 7);
+	letter-spacing: 0.0325em;
+	margin-left: 1em;
 }
 li {
-  letter-spacing: 0.0325em;
+	letter-spacing: 0.0325em;
 }
