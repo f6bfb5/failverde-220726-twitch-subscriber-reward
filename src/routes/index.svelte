@@ -15,28 +15,34 @@
 </script>
 
 <svelte:head>
-	<!-- Validate your twitter card with https://cards-dev.twitter.com/validator  -->
-	<!-- Update content properties with your URL   -->
-	<meta property="og:url" content="https://failverde-2207-subscriber-reward.netlify.app/" />
-
 	<title>懶猫訂閲者回饋說明與填寫</title>
+	<!-- Validate your twitter card with https://www.opengraph.xyz/  -->
+	<!-- HTML Meta Tags -->
+	<meta
+		name="description"
+		content="懶貓訂閱者回饋開放填單啦！在填單之前，請確定你已詳細閱讀相關說明。"
+	/>
+
+	<!-- Facebook Meta Tags -->
+	<meta property="og:url" content="https://failverde-2207-subscriber-reward.netlify.app" />
+	<meta property="og:type" content="website" />
 	<meta property="og:title" content="懶猫訂閲者回饋說明與填寫" />
 	<meta
 		property="og:description"
 		content="懶貓訂閱者回饋開放填單啦！在填單之前，請確定你已詳細閱讀相關說明。"
 	/>
-	<meta
-		name="Description"
-		content="懶貓訂閱者回饋開放填單啦！在填單之前，請確定你已詳細閱讀相關說明。"
-	/>
 	<meta property="og:image" content="https://i.imgur.com/u5ZOMTC.png" />
 
+	<!-- Twitter Meta Tags -->
 	<meta name="twitter:card" content="summary_large_image" />
+	<meta property="twitter:domain" content="netlify.app" />
+	<meta property="twitter:url" content="https://failverde-2207-subscriber-reward.netlify.app" />
 	<meta name="twitter:title" value="懶猫訂閲者回饋說明與填寫" />
 	<meta
 		name="twitter:description"
 		content="懶貓訂閱者回饋開放填單啦！在填單之前，請確定你已詳細閱讀相關說明。"
 	/>
+	<meta property="twitter:image" content="https://i.imgur.com/u5ZOMTC.png" />
 </svelte:head>
 <article style="padding-top: 1rem; box-shadow: 0 0 8px var(--primary-color);">
 	<h1>懶猫訂閲者回饋<wbr />說明與填寫</h1>
