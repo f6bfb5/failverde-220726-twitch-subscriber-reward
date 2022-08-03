@@ -30,7 +30,7 @@
 		login: '',
 		displayName: '',
 		name: '',
-		gender: '',
+		// gender: '',
 		phoneNumber: '',
 		email: '',
 		screenshotUrl: '',
@@ -142,38 +142,11 @@
 		e.target.value = newValue.match(re)[0];
 	}
 
-	function checkUnfilledField() {
-		const requiredFieldReference = {
-			name: '收件者名稱',
-			gender: '性別',
-			country: '國家',
-			// state: '洲',
-			city: '城市',
-			// district: '區',
-			// zipcode: '郵遞區號',
-			address: '地址',
-			phoneNumber: '聯絡電話',
-			email: 'E-mail',
-			screenshotUrl: '訂閱截圖網址',
-			customWord: '客製詞句'
-		};
-		// if (Object.values(contactInfo).includes('') || Object.values(locationInfo).includes(''))
-		if (
-			Object.entries(requiredFieldReference).some(
-				(requiredField) =>
-					contactInfo[requiredField[0]] === '' || contactInfo[requiredField[0]] === ''
-			)
-		) {
-			return true;
-		}
-		return false;
-	}
-
 	function getUnfilledField() {
 		const requiredFieldReference = {
 			name: '收件者名稱',
-			gender: '性別',
-			// country: '國家',
+			// gender: '性別',
+			country: '國家',
 			// state: '洲',
 			city: '城市',
 			// district: '區',
@@ -207,8 +180,8 @@
 	}
 
 	async function handleSubmitClick(e) {
-		if (checkUnfilledField()) {
-			unfilledFieldArr = getUnfilledField();
+		unfilledFieldArr = getUnfilledField();
+		if (unfilledFieldArr.length != 0) {
 			document.getElementById('js-message-box').classList.remove('hidden');
 			setTimeout(() => {
 				document.getElementById('js-message-box').classList.add('hidden');
@@ -220,7 +193,9 @@
 			const submitAddress = (
 				locationInfo.isOverseas
 					? // Overseas
-					  `${locationInfo.address} ${locationInfo.city} ${locationInfo.state} ${locationInfo.zipcode} ${locationInfo.country}`
+					  `${locationInfo.address}, ${locationInfo.city}, ${locationInfo.state} ${
+							locationInfo.zipcode
+					  } ${locationInfo.state || locationInfo.zip ? ',' : ''} ${locationInfo.country}`
 					: // Taiwan
 					  `${locationInfo.zipcode} ${locationInfo.city} ${locationInfo.district} ${locationInfo.address}`
 			)
@@ -239,20 +214,24 @@
 					4: contactInfo.name,
 					// 海外
 					5: locationInfo.isOverseas,
+					// 國家
+					6: locationInfo.isOverseas ? locationInfo.country : '',
 					// 縣市
-					6: locationInfo.city,
+					7: locationInfo.isOverseas ? '' : locationInfo.city,
 					// 郵遞區號
-					7: locationInfo.zipcode,
+					8: locationInfo.isOverseas ? '' : locationInfo.zipcode,
 					// 地址
-					8: submitAddress,
+					9: locationInfo.isOverseas
+						? submitAddress
+						: `${locationInfo.district} ${locationInfo.address}`,
 					// 聯絡電話
-					9: contactInfo.phoneNumber,
+					10: contactInfo.phoneNumber,
 					// E-mail
-					10: contactInfo.email,
+					11: contactInfo.email,
 					// 訂閱截圖網址
-					11: contactInfo.screenshotUrl,
+					12: contactInfo.screenshotUrl,
 					// 客製詞句
-					12: contactInfo.customWord
+					13: contactInfo.customWord
 				}
 			};
 
@@ -289,7 +268,7 @@
 			style="width: 100%; min-height: 100vh; display: grid; place-content: center; border-radius: 4px;"
 		>
 			<p
-				style="margin: auto; padding: 16px; width: fit-content; border-radius: 4px; background: white;"
+				style="margin: auto; padding: 16px; width: fit-content; border-radius: 4px; background: white; box-shadow: 0 0 8px var(--primary-color);"
 			>
 				請回到<a href="./">首頁</a>重新進行認證。
 			</p>
@@ -299,13 +278,13 @@
 			style="width: 100%; min-height: 100vh; display: grid; place-content: center; border-radius: 4px;"
 		>
 			<p
-				style="margin: auto; padding: 16px; width: fit-content; border-radius: 4px; background: white;"
+				style="margin: auto; padding: 16px; width: fit-content; border-radius: 4px; background: white; box-shadow: 0 0 8px var(--primary-color);"
 			>
 				填單已提交，將於 5 秒後回到首頁。
 			</p>
 		</div>
 	{:else}
-		<div class="form-container">
+		<div class="form-container" style="box-shadow: 0 0 8px var(--primary-color);">
 			<h1>填單</h1>
 			<form>
 				<!-- twitch info -->
@@ -327,7 +306,7 @@
 					/>
 				</div>
 				<!-- gender -->
-				<div style="margin-bottom: 16px;">
+				<!-- <div style="margin-bottom: 16px;">
 					<div>
 						<input
 							type="radio"
@@ -348,7 +327,7 @@
 						/>
 						<label class="input-label" for="female">女</label>
 					</div>
-				</div>
+				</div> -->
 				<!-- country -->
 				<div style="margin-bottom: 16px;">
 					<div>
@@ -516,10 +495,10 @@
 				<!-- input confirm -->
 				<div style="margin-bottom: 16px;">
 					<input type="checkbox" id="inputCheck" bind:checked={isConfirmed} />
-					<label for="inputCheck">我確定內容輸入無誤</label>
+					<label for="inputCheck">我確定已詳閱相關說明，以及上述內容輸入無誤</label>
 				</div>
 				<div id="js-message-box" class="message-box hidden">
-					請填寫以下欄位：
+					請填寫以下欄位：<br />
 					{#each unfilledFieldArr as unfilledField, i}
 						{#if i === unfilledFieldArr.length - 1}
 							{unfilledField}
@@ -609,7 +588,8 @@
 	.message-box {
 		margin-bottom: 16px;
 		padding: 12px;
-		background: yellow;
+		background: #f2e700;
+		color: black;
 		border-radius: 8px;
 	}
 	.message-box.hidden {

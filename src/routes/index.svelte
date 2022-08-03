@@ -14,7 +14,7 @@
 	}
 </script>
 
-<article style="padding-top: 1rem;">
+<article style="padding-top: 1rem; box-shadow: 0 0 8px var(--primary-color);">
 	<h1>懶猫訂閲者回饋<wbr />說明與填寫</h1>
 	<section style="display: flow-root;">
 		<p style="font-size: 1.25em; text-align: center;">
@@ -41,6 +41,10 @@
 			這次的回饋內容是外徑 8 公分、內徑 7.5 公分，杯高 10.4 公分的鋼杯，<br />
 			還能讓你客製化想刻在杯身上的內容！<br />
 			但要注意的是，<b>客製化的內容只能是「最長四個字的英文或數字」</b>。
+		</p>
+		<p>
+			審核結果位於此頁面的最下方，可以使用 <code>End</code> 鍵<br />
+			或點擊<a href="#verify-result">此處</a>快速移動到該區塊。
 		</p>
 		<h3>填單條件</h3>
 		<p>
@@ -212,7 +216,7 @@
 		</div>
 	</section>
 	<hr />
-	<section>
+	<section id="verify-result">
 		<h2>審核結果</h2>
 		<VerifyResult />
 	</section>
