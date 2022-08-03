@@ -29,7 +29,7 @@
 		name="Description"
 		content="懶貓訂閱者回饋開放填單啦！在填單之前，請確定你已詳細閱讀相關說明。"
 	/>
-	<meta property="og:image" content="https://cdn.discordapp.com/attachments/517930635453530115/1001486177389523024/unknown.png" />
+	<meta property="og:image" content="https://i.imgur.com/u5ZOMTC.png" />
 
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" value="懶猫訂閲者回饋說明與填寫" />
@@ -47,13 +47,9 @@
 		</p>
 		<h2>回饋說明</h2>
 		<div class="float-right" style="margin: 18px 0; text-align: center;">
-			<a
-				href="https://cdn.discordapp.com/attachments/517930635453530115/1001486177389523024/unknown.png"
-				rel="noreferrer noopener"
-				target="_blank"
-			>
+			<a href="https://i.imgur.com/u5ZOMTC.png" rel="noreferrer noopener" target="_blank">
 				<img
-					src="https://cdn.discordapp.com/attachments/517930635453530115/1001486177389523024/unknown.png"
+					src="https://i.imgur.com/u5ZOMTC.png"
 					style="max-width: 320px; width: 100%;"
 					alt="reward example"
 				/>
