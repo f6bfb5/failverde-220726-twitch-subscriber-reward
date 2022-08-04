@@ -1,15 +1,15 @@
 <script>
 	import VerifyResult from '$lib/VerifyResult.svelte';
+	import { twitchApiClientId } from '$lib/store.js';
 
 	function authorizeUser() {
 		const responseType = 'token+id_token';
-		const clientID = '9tg4wj9aa662dtxh3im93jkwu516bs0';
-		const scope = 'openid+user_read';
+const scope = 'openid+user_read';
 		// const redirectURL = window.location.protocol + '//' + window.location.hostname + ':5173/form';
 		const redirectURL = window.location.protocol + '//' + window.location.hostname + '/form';
 
 		window.location.assign(
-			`https://id.twitch.tv/oauth2/authorize?response_type=${responseType}&client_id=${clientID}&scope=${scope}&redirect_uri=${redirectURL}`
+			`https://id.twitch.tv/oauth2/authorize?response_type=${responseType}&client_id=${$twitchApiClientId}&scope=${scope}&redirect_uri=${redirectURL}`
 		);
 	}
 </script>

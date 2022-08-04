@@ -1,166 +1,67 @@
 <script>
+	import { onMount } from 'svelte';
+	import { spreadsheetApiUrl } from '$lib/store.js';
 	let verifyResultFilter = 'all';
 	let verifyResultSearch = '';
 
 	let verifyResultData = [
 		{
-			timestamp: new Date().toISOString(),
 			twitch_id: 'aaaa',
+			isPassed: 1
+		},
+		{
+			twitch_id: 'bbbb',
 			isPassed: true
 		},
 		{
-			timestamp: new Date().toISOString(),
-			twitch_id: 'bbbb',
+			twitch_id: 'cccc',
+			isPassed: 0
+		},
+		{
+			twitch_id: 'dddd',
 			isPassed: false,
 			reason: '地址有誤'
 		},
 		{
-			timestamp: new Date().toISOString(),
-			twitch_id: 'cccc',
+			twitch_id: 'eeee',
 			isPassed: false,
 			reason: '訂閱截圖網址失效'
 		},
 		{
-			timestamp: new Date().toISOString(),
-			twitch_id: 'dddd',
+			twitch_id: 'ffff',
 			isPassed: false,
 			reason: '訂閱未滿六個月'
 		},
 		{
-			timestamp: new Date().toISOString(),
-			twitch_id: 'zzzz',
-			isPassed: true
-		},
-		{
-			timestamp: new Date().toISOString(),
-			twitch_id: 'zzzz',
-			isPassed: 0
-		},
-		{
-			timestamp: new Date().toISOString(),
-			twitch_id: 'zzzz',
-			isPassed: 1
-		},
-		{
-			timestamp: new Date().toISOString(),
-			twitch_id: 'zzzz',
-			isPassed: true
-		},
-		{
-			timestamp: new Date().toISOString(),
-			twitch_id: 'zzzz',
-			isPassed: true
-		},
-		{
-			timestamp: new Date().toISOString(),
-			twitch_id: 'zzzz',
-			isPassed: true
-		},
-		{
-			timestamp: new Date().toISOString(),
-			twitch_id: 'zzzz',
-			isPassed: true
-		},
-		{
-			timestamp: new Date().toISOString(),
-			twitch_id: 'zzzz',
-			isPassed: true
-		},
-		{
-			timestamp: new Date().toISOString(),
-			twitch_id: 'zzzz',
-			isPassed: true
-		},
-		{
-			timestamp: new Date().toISOString(),
-			twitch_id: 'zzzz',
-			isPassed: true
-		},
-		{
-			timestamp: new Date().toISOString(),
-			twitch_id: 'zzzz',
-			isPassed: true
-		},
-		{
-			timestamp: new Date().toISOString(),
-			twitch_id: 'zzzz',
-			isPassed: true
-		},
-		{
-			timestamp: new Date().toISOString(),
-			twitch_id: 'zzzz',
-			isPassed: true
-		},
-		{
-			timestamp: new Date().toISOString(),
-			twitch_id: 'zzzz',
-			isPassed: true
-		},
-		{
-			timestamp: new Date().toISOString(),
-			twitch_id: 'zzzz',
-			isPassed: true
-		},
-		{
-			timestamp: new Date().toISOString(),
-			twitch_id: 'zzzz',
-			isPassed: true
-		},
-		{
-			timestamp: new Date().toISOString(),
-			twitch_id: 'zzzz',
-			isPassed: true
-		},
-		{
-			timestamp: new Date().toISOString(),
-			twitch_id: 'zzzz',
-			isPassed: true
-		},
-		{
-			timestamp: new Date().toISOString(),
-			twitch_id: 'zzzz',
-			isPassed: true
-		},
-		{
-			timestamp: new Date().toISOString(),
-			twitch_id: 'zzzz',
-			isPassed: true
-		},
-		{
-			timestamp: new Date().toISOString(),
-			twitch_id: 'zzzz',
-			isPassed: true
-		},
-		{
-			timestamp: new Date().toISOString(),
-			twitch_id: 'zzzz',
-			isPassed: true
-		},
-		{
-			timestamp: new Date().toISOString(),
-			twitch_id: 'zzzz',
-			isPassed: true
-		},
-		{
-			timestamp: new Date().toISOString(),
-			twitch_id: 'zzzz',
-			isPassed: true
-		},
-		{
-			timestamp: new Date().toISOString(),
-			twitch_id: 'zzzz',
-			isPassed: true
-		},
-		{
-			timestamp: new Date().toISOString(),
-			twitch_id: 'zzzz',
-			isPassed: true
+			twitch_id: 'gggg',
+			isPassed: ''
 		}
 	];
 
 	async function fetchVerifyResultData() {
-		const apiUrl = '';
+		const action = 'getVerifyResult';
+		const getParameter = `?action=${action}`;
+		await fetch($spreadsheetApiUrl + getParameter, {
+			method: 'GET',
+		}).then((response) => {
+			return response.json();
+		}).then((data) => {
+			Object.values(data[0]).forEach((d, i) => {
+				let dataToAdd = {
+					twitch_id: data[0][i],
+					isPassed: data[1][i],
+				};
+				if (data[2][i] != '') dataToAdd.reason = data[2][i];
+				verifyResultData.push(dataToAdd);
+			});
+		}).catch((error) => {
+			console.log(error);
+		});
 	}
+
+	onMount(() => {
+		fetchVerifyResultData();
+	});
 </script>
 
 <div class="verify-result-container">
@@ -227,8 +128,8 @@
 					<!-- <td>{new Date(data.timestamp)}</td> -->
 					<td>{data.twitch_id}</td>
 					<td>
-						<span class={data.isPassed ? '' : 'rejected'}>
-							{data.isPassed ? '通過' : '未通過'}
+						<span class={data.isPassed === '' ? 'examining' : data.isPassed ? '' : 'rejected'}>
+							{data.isPassed === '' ? '審核中' : data.isPassed ? '通過' : '未通過'}
 						</span>
 						{#if !data.isPassed && data.reason}
 							<br />{data.reason}
@@ -302,8 +203,19 @@
 		background: #28869c;
 	}
 	.rejected {
-		color: #d7003a;
+		color: #ff4b00;
 		font-weight: bold;
+	}
+	.examining {
+		color: #f2e700;
+	}
+	.rejected {
+		text-shadow: -1px -1px #E0EEEE, -1px 0px #E0EEEE, -1px 1px #E0EEEE, 0px -1px #E0EEEE,
+			0px 0px #E0EEEE, 0px 1px #E0EEEE, 1px -1px #E0EEEE, 1px 0px #E0EEEE, 1px 1px #E0EEEE;
+	}
+	.examining {
+		text-shadow: -1px -1px #242222, -1px 0px #242222, -1px 1px #242222, 0px -1px #242222,
+			0px 0px #242222, 0px 1px #242222, 1px -1px #242222, 1px 0px #242222, 1px 1px #242222;
 	}
 
 	@media screen and (max-width: 768px) {

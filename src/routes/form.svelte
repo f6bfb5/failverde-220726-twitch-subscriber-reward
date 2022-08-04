@@ -8,6 +8,7 @@
 
 	import { onMount } from 'svelte';
 	import Loader from '$lib/Loader.svelte';
+	import { twitchApiUrl, twitchApiClientId, spreadsheetApiUrl } from '$lib/store.js';
 
 	let isLoaded = false;
 	function pageLoaded() {
@@ -30,40 +31,11 @@
 		login: '',
 		displayName: '',
 		name: '',
-		// gender: '',
 		phoneNumber: '',
 		email: '',
 		screenshotUrl: '',
 		customWord: ''
 	};
-
-	// ==== test data ====
-	// let locationInfo = {
-	// 	isOverseas: false,
-	// 	city: '臺北市',
-	// 	district: '中正區',
-	// 	zipcode: '100',
-	// 	address: '測試地址'
-	// };
-	// let locationInfo = {
-	// 	isOverseas: true,
-	// 	country: 'Japan',
-	// 	state: '',
-	// 	city: 'Chiyoda City',
-	// 	zipcode: '',
-	// 	address: '1-1 Chiyoda'
-	// };
-	// let contactInfo = {
-	// 	login: '',
-	// 	displayName: '',
-	// 	name: '測試收件者',
-	// 	gender: '男',
-	// 	phoneNumber: '0912345678',
-	// 	email: 'example@example.com',
-	// 	screenshotUrl: 'https://example.com/example.png',
-	// 	// screenshotUrl: '',
-	// 	customWord: 'exam'
-	// };
 
 	function initLocationInfo(isOverseas) {
 		locationInfo = isOverseas
@@ -108,13 +80,12 @@
 		urlHash.forEach((hash) => (urlParameter[hash.split('=')[0]] = hash.split('=')[1]));
 		if (JSON.stringify(Object.keys(urlParameter)) === JSON.stringify(parameterReference)) {
 			let decodedIDToken = parseJwt(urlParameter.id_token);
-			const clientID = '9tg4wj9aa662dtxh3im93jkwu516bs0';
-			const apiUrl = `https://api.twitch.tv/helix/users?id=${decodedIDToken.sub}`;
-			fetch(apiUrl, {
+			const getParameter = `/users?id=${decodedIDToken.sub}`;
+			fetch($twitchApiUrl + getParameter, {
 				method: 'GET',
 				headers: new Headers({
 					Authorization: `Bearer ${urlParameter.access_token}`,
-					'Client-ID': clientID
+					'Client-ID': $twitchApiClientId
 				}),
 				mode: 'cors',
 				cache: 'default'
@@ -145,7 +116,6 @@
 	function getUnfilledField() {
 		const requiredFieldReference = {
 			name: '收件者名稱',
-			// gender: '性別',
 			country: '國家',
 			// state: '洲',
 			city: '城市',
@@ -187,9 +157,6 @@
 				document.getElementById('js-message-box').classList.add('hidden');
 			}, 5000);
 		} else {
-			const apiUrl =
-				'https://script.google.com/macros/s/AKfycbyQJSJ7dZoD-1is8fLVp7uy43pBXakeLeabTU8FbtmNFLcJl5z2X3a1Jju4wnfXxWlobQ/exec';
-			const submitTimestamp = new Date();
 			const submitAddress = (
 				locationInfo.isOverseas
 					? // Overseas
@@ -205,7 +172,7 @@
 				action: 'appendRow',
 				data: {
 					// 提交時間
-					1: submitTimestamp.toISOString(),
+					1: new Date().toISOString(),
 					// Twitch 帳號
 					2: contactInfo.login,
 					// Twitch 暱稱
@@ -236,7 +203,7 @@
 			};
 
 			e.currentTarget.disabled = true;
-			await fetch(apiUrl, {
+			await fetch($spreadsheetApiUrl, {
 				redirect: 'follow',
 				method: 'POST',
 				body: JSON.stringify(submitData),
@@ -305,29 +272,6 @@
 						disabled={isConfirmed}
 					/>
 				</div>
-				<!-- gender -->
-				<!-- <div style="margin-bottom: 16px;">
-					<div>
-						<input
-							type="radio"
-							bind:group={contactInfo.gender}
-							id="male"
-							name="gender"
-							value="男"
-							disabled={isConfirmed}
-						/>
-						<label class="input-label" for="male">男</label>
-						<input
-							type="radio"
-							bind:group={contactInfo.gender}
-							id="female"
-							name="gender"
-							value="女"
-							disabled={isConfirmed}
-						/>
-						<label class="input-label" for="female">女</label>
-					</div>
-				</div> -->
 				<!-- country -->
 				<div style="margin-bottom: 16px;">
 					<div>
