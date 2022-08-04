@@ -46,12 +46,13 @@
 		}).then((response) => {
 			return response.json();
 		}).then((data) => {
-			Object.values(data[0]).forEach((d, i) => {
+			console.log(data);
+			Object.values(data[2]).forEach((d, i) => {
 				let dataToAdd = {
-					twitch_id: data[0][i],
-					isPassed: data[1][i],
+					twitch_id: data[2][i],
+					isPassed: data[15][i],
 				};
-				if (data[2][i] != '') dataToAdd.reason = data[2][i];
+				if (data[16][i] != '') dataToAdd.reason = data[16][i];
 				verifyResultData.push(dataToAdd);
 			});
 		}).catch((error) => {

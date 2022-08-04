@@ -233,6 +233,9 @@ const scope = 'openid+user_read';
 					</a> 上私訊懶貓聯絡
 				</b>
 			</li>
+			<li>
+				若交單後審核未過或審核有誤，可以直接再次重填，或找懶貓聯絡
+			</li>
 		</ul>
 	</section>
 	<hr />
