@@ -4,60 +4,32 @@
 	let verifyResultFilter = 'all';
 	let verifyResultSearch = '';
 
-	let verifyResultData = [
-		{
-			twitch_id: 'aaaa',
-			isPassed: 1
-		},
-		{
-			twitch_id: 'bbbb',
-			isPassed: true
-		},
-		{
-			twitch_id: 'cccc',
-			isPassed: 0
-		},
-		{
-			twitch_id: 'dddd',
-			isPassed: false,
-			reason: '地址有誤'
-		},
-		{
-			twitch_id: 'eeee',
-			isPassed: false,
-			reason: '訂閱截圖網址失效'
-		},
-		{
-			twitch_id: 'ffff',
-			isPassed: false,
-			reason: '訂閱未滿六個月'
-		},
-		{
-			twitch_id: 'gggg',
-			isPassed: ''
-		}
-	];
+	let verifyResultData = [];
 
 	async function fetchVerifyResultData() {
 		const action = 'getVerifyResult';
 		const getParameter = `?action=${action}`;
 		await fetch($spreadsheetApiUrl + getParameter, {
-			method: 'GET',
-		}).then((response) => {
-			return response.json();
-		}).then((data) => {
-			Object.values(data[2]).forEach((d, i) => {
-				let dataToAdd = {
-					twitch_id: data[2][i][0],
-					isPassed: data[15][i][0],
-				};
-				if (data[16][i] != '') dataToAdd.reason = data[16][i][0];
-				verifyResultData.push(dataToAdd);
-				verifyResultData = verifyResultData;
+			method: 'GET'
+		})
+			.then((response) => {
+				return response.json();
+			})
+			.then((data) => {
+				Object.values(data[2]).forEach((d, i) => {
+					let dataToAdd = {
+						twitch_id: data[2][i][0],
+						isPassed: data[15][i][0] == '' ? '' : JSON.parse(data[15][i][0])
+					};
+					if (data[16][i] != '') dataToAdd.reason = data[16][i][0];
+					verifyResultData.push(dataToAdd);
+					verifyResultData = verifyResultData;
+				});
+				console.log(verifyResultData);
+			})
+			.catch((error) => {
+				console.log(error);
 			});
-		}).catch((error) => {
-			console.log(error);
-		});
 	}
 
 	onMount(() => {
@@ -213,8 +185,8 @@
 		color: #f2e700;
 	}
 	.rejected {
-		text-shadow: -1px -1px #E0EEEE, -1px 0px #E0EEEE, -1px 1px #E0EEEE, 0px -1px #E0EEEE,
-			0px 0px #E0EEEE, 0px 1px #E0EEEE, 1px -1px #E0EEEE, 1px 0px #E0EEEE, 1px 1px #E0EEEE;
+		text-shadow: -1px -1px #e0eeee, -1px 0px #e0eeee, -1px 1px #e0eeee, 0px -1px #e0eeee,
+			0px 0px #e0eeee, 0px 1px #e0eeee, 1px -1px #e0eeee, 1px 0px #e0eeee, 1px 1px #e0eeee;
 	}
 	.examining {
 		text-shadow: -1px -1px #242222, -1px 0px #242222, -1px 1px #242222, 0px -1px #242222,
