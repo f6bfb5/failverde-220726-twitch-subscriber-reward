@@ -49,12 +49,14 @@
 			console.log(data);
 			Object.values(data[2]).forEach((d, i) => {
 				let dataToAdd = {
-					twitch_id: data[2][i],
-					isPassed: data[15][i],
+					twitch_id: data[2][i][0],
+					isPassed: data[15][i][0],
 				};
-				if (data[16][i] != '') dataToAdd.reason = data[16][i];
+				if (data[16][i] != '') dataToAdd.reason = data[16][i][0];
 				verifyResultData.push(dataToAdd);
+				verifyResultData = verifyResultData;
 			});
+			console.log(verifyResultData);
 		}).catch((error) => {
 			console.log(error);
 		});
@@ -63,6 +65,8 @@
 	onMount(() => {
 		fetchVerifyResultData();
 	});
+
+	$: verifyResultData;
 </script>
 
 <div class="verify-result-container">
