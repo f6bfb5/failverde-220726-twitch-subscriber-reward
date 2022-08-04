@@ -46,7 +46,6 @@
 		}).then((response) => {
 			return response.json();
 		}).then((data) => {
-			console.log(data);
 			Object.values(data[2]).forEach((d, i) => {
 				let dataToAdd = {
 					twitch_id: data[2][i][0],
@@ -56,7 +55,6 @@
 				verifyResultData.push(dataToAdd);
 				verifyResultData = verifyResultData;
 			});
-			console.log(verifyResultData);
 		}).catch((error) => {
 			console.log(error);
 		});
