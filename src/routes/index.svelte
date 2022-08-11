@@ -31,7 +31,7 @@ const scope = 'openid+user_read';
 		property="og:description"
 		content="懶貓訂閱者回饋開放填單啦！在填單之前，請確定你已詳細閱讀相關說明。"
 	/>
-	<meta property="og:image" content="https://i.imgur.com/u5ZOMTC.png" />
+	<meta property="og:image" content="https://i.imgur.com/hJhQkit.jpg" />
 
 	<!-- Twitter Meta Tags -->
 	<meta name="twitter:card" content="summary_large_image" />
@@ -42,7 +42,7 @@ const scope = 'openid+user_read';
 		name="twitter:description"
 		content="懶貓訂閱者回饋開放填單啦！在填單之前，請確定你已詳細閱讀相關說明。"
 	/>
-	<meta property="twitter:image" content="https://i.imgur.com/u5ZOMTC.png" />
+	<meta property="twitter:image" content="https://i.imgur.com/hJhQkit.jpg" />
 </svelte:head>
 <article style="padding-top: 1rem; box-shadow: 0 0 8px var(--primary-color);">
 	<h1>懶猫訂閲者回饋<wbr />說明與填寫</h1>

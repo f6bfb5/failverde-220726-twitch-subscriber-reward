@@ -17,6 +17,8 @@
 			})
 			.then((data) => {
 				Object.values(data[2]).forEach((d, i) => {
+					// How can I convert a string to boolean in JavaScript? - Stack Overflow
+					// https://stackoverflow.com/questions/263965/how-can-i-convert-a-string-to-boolean-in-javascript
 					let dataToAdd = {
 						twitch_id: data[2][i][0],
 						isPassed: data[15][i][0] == '' ? '' : JSON.parse(data[15][i][0])
