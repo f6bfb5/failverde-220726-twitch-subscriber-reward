@@ -4,7 +4,7 @@
 
 	function authorizeUser() {
 		const responseType = 'token+id_token';
-const scope = 'openid+user_read';
+		const scope = 'openid+user_read';
 		// const redirectURL = window.location.protocol + '//' + window.location.hostname + ':5173/form';
 		const redirectURL = window.location.protocol + '//' + window.location.hostname + '/form';
 
@@ -118,7 +118,19 @@ const scope = 'openid+user_read';
 			並<b>於填單時，於指定欄位附上圖片網址</b>。<br />
 			（可使用 Win+Shift+S 拉選範圍截圖，<wbr />開啟小畫家貼上、存檔後，上傳至
 			<a href="https://imgur.com/" rel="noreferrer noopener" target="_blank">Imgur</a>
-			）
+			）<br />
+			<span style="display: inline-block;
+				padding: 4px;
+				background-color: rgb(255, 75, 0);">
+				<span
+					style="color: rgb(255, 75, 0); 
+					filter: invert(100%) grayscale(100%) contrast(100); 
+					font-size: 20px;
+					font-weight: bold;"
+				>
+					請確定在填單之前，你已經上傳截圖並準備好網址。
+				</span>
+			</span>
 		</p>
 	</div>
 	<section>
@@ -233,9 +245,7 @@ const scope = 'openid+user_read';
 					</a> 上私訊懶貓聯絡
 				</b>
 			</li>
-			<li>
-				若交單後審核未過或審核有誤，可以直接再次重填，或找懶貓聯絡
-			</li>
+			<li>若交單後審核未過或審核有誤，可以直接再次重填，或找懶貓聯絡</li>
 		</ul>
 	</section>
 	<hr />
