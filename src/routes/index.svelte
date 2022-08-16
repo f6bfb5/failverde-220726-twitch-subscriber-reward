@@ -53,9 +53,9 @@
 		</p>
 		<h2>回饋說明</h2>
 		<div class="float-right" style="margin: 18px 0; text-align: center;">
-			<a href="https://i.imgur.com/u5ZOMTC.png" rel="noreferrer noopener" target="_blank">
+			<a href="https://cdn.discordapp.com/attachments/517930635453530115/1009024230156935198/unknown.png" rel="noreferrer noopener" target="_blank">
 				<img
-					src="https://i.imgur.com/u5ZOMTC.png"
+					src="https://cdn.discordapp.com/attachments/517930635453530115/1009024230156935198/unknown.png"
 					style="max-width: 320px; width: 100%;"
 					alt="reward example"
 				/>
