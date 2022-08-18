@@ -12,6 +12,11 @@
 			`https://id.twitch.tv/oauth2/authorize?response_type=${responseType}&client_id=${$twitchApiClientId}&scope=${scope}&redirect_uri=${redirectURL}`
 		);
 	}
+
+	const socialUrl = 'https://failverde-2207-subscriber-reward.netlify.app';
+	const socialImage = 'https://i.imgur.com/hJhQkit.jpg';
+	const sampleImage =
+		'https://cdn.discordapp.com/attachments/517930635453530115/1009382668338741258/unknown.png';
 </script>
 
 <svelte:head>
@@ -24,28 +29,29 @@
 	/>
 
 	<!-- Facebook Meta Tags -->
-	<meta property="og:url" content="https://failverde-2207-subscriber-reward.netlify.app" />
+	<meta property="og:url" content={socialUrl} />
 	<meta property="og:type" content="website" />
-	<meta property="og:title" content="懶猫訂閲者回饋說明與填寫" />
+	<meta property="og:title" content="懶貓訂閲者回饋說明與填寫" />
 	<meta
 		property="og:description"
 		content="懶貓訂閱者回饋開放填單啦！在填單之前，請確定你已詳細閱讀相關說明。"
 	/>
-	<meta property="og:image" content="https://i.imgur.com/hJhQkit.jpg" />
+	<meta property="og:image" content={socialImage} />
 
 	<!-- Twitter Meta Tags -->
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta property="twitter:domain" content="netlify.app" />
-	<meta property="twitter:url" content="https://failverde-2207-subscriber-reward.netlify.app" />
-	<meta name="twitter:title" value="懶猫訂閲者回饋說明與填寫" />
+	<meta property="twitter:url" content={socialUrl} />
+	<meta name="twitter:title" value="懶貓訂閲者回饋說明與填寫" />
 	<meta
 		name="twitter:description"
 		content="懶貓訂閱者回饋開放填單啦！在填單之前，請確定你已詳細閱讀相關說明。"
 	/>
-	<meta property="twitter:image" content="https://i.imgur.com/hJhQkit.jpg" />
+	<meta property="twitter:image" content={socialImage} />
 </svelte:head>
+
 <article style="padding-top: 1rem; box-shadow: 0 0 8px var(--primary-color);">
-	<h1>懶猫訂閲者回饋<wbr />說明與填寫</h1>
+	<h1>懶貓訂閲者回饋<wbr />說明與填寫</h1>
 	<section style="display: flow-root;">
 		<p style="font-size: 1.25em; text-align: center;">
 			懶貓訂閱者回饋開放填單啦！<br />
@@ -53,12 +59,8 @@
 		</p>
 		<h2>回饋說明</h2>
 		<div class="float-right" style="margin: 18px 0; text-align: center;">
-			<a href="https://cdn.discordapp.com/attachments/517930635453530115/1009024230156935198/unknown.png" rel="noreferrer noopener" target="_blank">
-				<img
-					src="https://cdn.discordapp.com/attachments/517930635453530115/1009024230156935198/unknown.png"
-					style="max-width: 320px; width: 100%;"
-					alt="reward example"
-				/>
+			<a href={sampleImage} rel="noreferrer noopener" target="_blank">
+				<img src={sampleImage} style="max-width: 320px; width: 100%;" alt="reward example" />
 			</a>
 			<div>點擊可看大圖</div>
 		</div>
@@ -119,16 +121,18 @@
 			（可使用 Win+Shift+S 拉選範圍截圖，<wbr />開啟小畫家貼上、存檔後，上傳至
 			<a href="https://imgur.com/" rel="noreferrer noopener" target="_blank">Imgur</a>
 			）<br />
-			<span style="display: inline-block;
+			<span
+				style="display: inline-block;
 				padding: 4px;
-				background-color: rgb(255, 75, 0);">
+				background-color: rgb(255, 75, 0);"
+			>
 				<span
 					style="color: rgb(255, 75, 0); 
 					filter: invert(100%) grayscale(100%) contrast(100); 
-					font-size: 20px;
-					font-weight: bold;"
+					font-size: 1.3em;
+					font-weight: 600;"
 				>
-					請確定在填單之前，你已經上傳截圖並準備好網址。
+					請確定在進入填單頁面之前，你已經上傳截圖，並準備好網址。
 				</span>
 			</span>
 		</p>
