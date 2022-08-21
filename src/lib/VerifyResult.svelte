@@ -20,9 +20,18 @@
 					// How can I convert a string to boolean in JavaScript? - Stack Overflow
 					// https://stackoverflow.com/questions/263965/how-can-i-convert-a-string-to-boolean-in-javascript
 					let dataToAdd = {
-						twitch_id: data[2][i][0],
-						isPassed: data[15][i][0] == '' ? '' : JSON.parse(data[15][i][0])
+						twitch_id: data[2][i][0]
 					};
+					try {
+						dataToAdd.isPassed = JSON.parse(data[15][i][0]);
+
+					} catch {
+						dataToAdd.isPassed = '';
+					}
+					// let dataToAdd = {
+					// 	twitch_id: data[2][i][0],
+					// 	isPassed: data[15][i][0] == '' ? '' : JSON.parse(data[15][i][0])
+					// };
 					if (data[16][i] != '') dataToAdd.reason = data[16][i][0];
 					verifyResultData.push(dataToAdd);
 					verifyResultData = verifyResultData;
