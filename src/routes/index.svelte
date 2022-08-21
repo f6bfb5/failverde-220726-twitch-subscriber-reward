@@ -138,7 +138,7 @@
 		</p>
 	</div>
 	<section>
-		<h2 style="margin-top: 0;">截圖示例</h2>
+		<h2 style="margin-top: 0;">截圖示例（點擊可看大圖）</h2>
 		<div style="display: flow-root;">
 			<div class="float-right" style="margin: 24px 0; text-align: center;">
 				<a href="https://i.imgur.com/MYsttEC.jpg" rel="noreferrer noopener" target="_blank">
