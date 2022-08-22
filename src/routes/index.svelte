@@ -117,13 +117,22 @@
 		<p>
 			為了確認你的訂閱者身份，除了基礎的寄送資料外，<br />
 			還需要請你<b>依照下列要求，截圖訂閱資格之後上傳</b>，<br />
-			並<b>於填單時，於指定欄位附上圖片網址</b>。<br />
-			（可使用 Win+Shift+S 拉選範圍截圖，<wbr />開啟小畫家貼上、存檔後，上傳至
-			<a href="https://imgur.com/" rel="noreferrer noopener" target="_blank">Imgur</a>
-			）
+			並<b>於填單時，於指定欄位附上圖片網址</b>。
+		</p>
+		<p>
+			（可使用 <code>Win+Shift+S</code> 拉選範圍截圖，<br />
+			開啟 <a href="https://imgur.com/" rel="noreferrer noopener" target="_blank">Imgur</a>
+			按下 <code>Ctrl+V</code> 就可上傳圖片。）
+		</p>
+		<p>
+			（如果有補圖需求，可以先在小畫家裡按下 <code>Ctrl+V</code> 貼上圖片，<br />
+			並重複一次操作截取補圖部份，完成作業後，按下 <code>Ctrl+A</code> 全選、<code>Ctrl+C</code>
+			複製，<br />
+			開啟 <a href="https://imgur.com/" rel="noreferrer noopener" target="_blank">Imgur</a>
+			並按下 <code>Ctrl+V</code> 上傳圖片。）
 		</p>
 		<p>另外也有幾點細節希望你能配合，減少你我困擾：</p>
-		<ul>		
+		<ul>
 			<li>除了補上送訂通知，請不要對截圖進行二次編輯，例如裁切後移動位置等等</li>
 			<li>請上傳單一圖片，不要分成多張圖片上傳</li>
 			<li>
