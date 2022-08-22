@@ -122,7 +122,8 @@
 		<p>
 			（可使用 <code>Win+Shift+S</code> 拉選範圍截圖，<br />
 			開啟 <a href="https://imgur.com/" rel="noreferrer noopener" target="_blank">Imgur</a>
-			按下 <code>Ctrl+V</code> 就可上傳圖片。）
+			按下 <code>Ctrl+V</code> 就可上傳圖片。<br />
+			圖片上傳完成後，對網頁上的圖片點選右鍵，選擇「複製圖片網址」即可。）
 		</p>
 		<p>
 			（如果有補圖需求，可以先在小畫家裡按下 <code>Ctrl+V</code> 貼上圖片，<br />
