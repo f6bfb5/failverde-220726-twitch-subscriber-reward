@@ -120,22 +120,29 @@
 			並<b>於填單時，於指定欄位附上圖片網址</b>。<br />
 			（可使用 Win+Shift+S 拉選範圍截圖，<wbr />開啟小畫家貼上、存檔後，上傳至
 			<a href="https://imgur.com/" rel="noreferrer noopener" target="_blank">Imgur</a>
-			）<br />
-			<span
-				style="display: inline-block;
-				padding: 4px;
-				background-color: rgb(255, 75, 0);"
-			>
-				<span
-					style="color: rgb(255, 75, 0); 
-					filter: invert(100%) grayscale(100%) contrast(100); 
-					font-size: 1.3em;
-					font-weight: 600;"
-				>
-					請確定在進入填單頁面之前，你已經上傳截圖，並準備好網址。
-				</span>
-			</span>
+			）
 		</p>
+		<p>另外也有幾點細節希望你能配合，減少你我困擾：</p>
+		<ul>		
+			<li>除了補上送訂通知，請不要對截圖進行二次編輯，例如裁切後移動位置等等</li>
+			<li>請上傳單一圖片，不要分成多張圖片上傳</li>
+			<li>
+				<span
+					style="display: inline-block;
+						padding: 4px;
+						background-color: rgb(255, 75, 0);"
+				>
+					<span
+						style="color: rgb(255, 75, 0); 
+							filter: invert(100%) grayscale(100%) contrast(100); 
+							font-size: 1.3em;
+							font-weight: 600;"
+					>
+						請確定在進入填單頁面之前，你已經上傳截圖，並準備好網址。
+					</span>
+				</span>
+			</li>
+		</ul>
 	</div>
 	<section>
 		<h2 style="margin-top: 0;">截圖示例（點擊可看大圖）</h2>
