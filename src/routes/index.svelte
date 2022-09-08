@@ -119,23 +119,27 @@
 			還需要請你<b>依照下列要求，截圖訂閱資格之後上傳</b>，<br />
 			並<b>於填單時，於指定欄位附上圖片網址</b>。
 		</p>
+		<h3>截圖相關技巧</h3>
 		<p>
-			（可使用 <code>Win+Shift+S</code> 拉選範圍截圖，<br />
-			開啟 <a href="https://imgur.com/" rel="noreferrer noopener" target="_blank">Imgur</a>
+			Windows 可以使用 <code>Win+Shift+S</code> 快速拉選截圖範圍，<br />
+			之後開啓 <a href="https://imgur.com/" rel="noreferrer noopener" target="_blank">Imgur</a>，
 			按下 <code>Ctrl+V</code> 就可上傳圖片。<br />
-			圖片上傳完成後，對網頁上的圖片點選右鍵，選擇「複製圖片網址」即可。）
+			圖片上傳完成後，對網頁上的圖片點選右鍵，選擇「複製圖片網址」即可取得網址。
 		</p>
 		<p>
-			（如果有補圖需求，可以先在小畫家裡按下 <code>Ctrl+V</code> 貼上圖片，<br />
-			並重複一次操作截取補圖部份，完成作業後，按下 <code>Ctrl+A</code> 全選、<code>Ctrl+C</code>
+			如有補圖需求，可以在拉選範圍後，<br />
+			先開啓小畫家，按下 <code>Ctrl+V</code> 貼上圖片，<br />
+			並再次拉選範圍截取補圖部份，貼至小畫家裡不會遮掩資訊的地方，<br />
+			完成作業後，按下 <code>Ctrl+A</code> 全選、<code>Ctrl+C</code>
 			複製，<br />
 			開啟 <a href="https://imgur.com/" rel="noreferrer noopener" target="_blank">Imgur</a>
-			並按下 <code>Ctrl+V</code> 上傳圖片。）
+			並按下 <code>Ctrl+V</code> 就可上傳圖片。
 		</p>
+		<h3>截圖注意事項</h3>
 		<p>另外也有幾點細節希望你能配合，減少你我困擾：</p>
 		<ul>
-			<li>除了補上送訂通知，請不要對截圖進行二次編輯，例如裁切後移動位置等等</li>
-			<li>請上傳單一圖片，不要分成多張圖片上傳</li>
+			<li>除了補上送訂通知，請<b>不要對截圖進行二次編輯</b>，例如裁切後移動位置等等</li>
+			<li>請上傳單一圖片，<b>不要分成多張圖片上傳</b></li>
 			<li>
 				<span
 					style="display: inline-block;
@@ -392,6 +396,12 @@
 
 	b {
 		background: linear-gradient(transparent 66%, #f6ff66 0);
+	}
+	code {
+		padding: 4px;
+		border-radius: 4px;
+		color: #eee;
+		background: #4e9a06;
 	}
 
 	@media screen and (min-width: 576px) {
