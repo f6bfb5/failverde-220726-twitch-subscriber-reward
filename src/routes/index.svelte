@@ -132,14 +132,14 @@
 			並再次拉選範圍截取補圖部份，貼至小畫家裡不會遮掩資訊的地方，<br />
 			完成作業後，按下 <code>Ctrl+A</code> 全選、<code>Ctrl+C</code>
 			複製，<br />
-			開啟 <a href="https://imgur.com/" rel="noreferrer noopener" target="_blank">Imgur</a>
+			開啓 <a href="https://imgur.com/" rel="noreferrer noopener" target="_blank">Imgur</a>
 			並按下 <code>Ctrl+V</code> 就可上傳圖片。
 		</p>
 		<h3>截圖注意事項</h3>
 		<p>另外也有幾點細節希望你能配合，減少你我困擾：</p>
 		<ul>
-			<li>除了補上送訂通知，請<b>不要對截圖進行二次編輯</b>，例如裁切後移動位置等等</li>
-			<li>請上傳單一圖片，<b>不要分成多張圖片上傳</b></li>
+			<li>A. 除了補上送訂通知，請<b style="font-size: 1.3em;">不要對截圖進行二次編輯</b>，例如裁切後移動位置等等</li>
+			<li>B. 請上傳單一圖片，<b style="font-size: 1.3em;">不要分成多張圖片上傳</b></li>
 			<li>
 				<span
 					style="display: inline-block;
