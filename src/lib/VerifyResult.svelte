@@ -6,6 +6,14 @@
 
 	let verifyResultData = [];
 
+	function uniqByKeepLast(a, key) {
+		return [
+			...new Map(
+				a.map(x => [key(x), x])
+			).values()
+		]
+	}
+
 	async function fetchVerifyResultData() {
 		const action = 'getVerifyResult';
 		const getParameter = `?action=${action}`;
@@ -36,7 +44,9 @@
 					verifyResultData.push(dataToAdd);
 					verifyResultData = verifyResultData;
 				});
-				console.log(verifyResultData);
+				verifyResultData = uniqByKeepLast(verifyResultData, it => it.twitch_id);
+				// console.log(uniqByKeepLast(verifyResultData, it => it.twitch_id));
+				// console.log(verifyResultData);
 			})
 			.catch((error) => {
 				console.log(error);
