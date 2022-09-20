@@ -276,7 +276,8 @@
 	<hr />
 	<section>
 		<div style="text-align: center;">
-			<button class="btn" on:click={authorizeUser}>我要填單</button>
+			<!-- <button class="btn" on:click={authorizeUser}>我要填單</button> -->
+			<button class="btn" disabled>填單已截止</button>
 		</div>
 	</section>
 	<hr />

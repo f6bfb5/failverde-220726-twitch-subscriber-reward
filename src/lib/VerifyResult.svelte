@@ -6,6 +6,7 @@
 
 	let verifyResultData = [];
 
+	// https://stackoverflow.com/questions/9229645/remove-duplicate-values-from-js-array
 	function uniqByKeepLast(a, key) {
 		return [
 			...new Map(
